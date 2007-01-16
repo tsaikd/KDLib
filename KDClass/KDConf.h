@@ -44,7 +44,7 @@ public:
 
 	/**
 		@brief Check the key is redefined or not.
-
+		@param lpKey the name of the key
 		@remark Only in DEBUG mode
 	**/
 	inline void SignKey(LPCTSTR lpKey) { ASSERT(!m_mapKey.Lookup(lpKey, CKDString())); }

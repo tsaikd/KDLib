@@ -33,3 +33,27 @@ void CKDCriticalSection::Stop()
 	DeleteCriticalSection(&m_cs);
 	VERIFY(InitializeCriticalSectionAndSpinCount(&m_cs, m_dwSpinCount));
 }
+
+///////////////////////////////////////////////////////////////////////////
+
+CKDMTCriticalSection::CKDMTCriticalSection()
+{
+	m_hSemaphore = CreateSemaphore(NULL, 1, 1, NULL);
+}
+
+CKDMTCriticalSection::~CKDMTCriticalSection()
+{
+	CloseHandle(m_hSemaphore);
+}
+
+bool CKDMTCriticalSection::Start(bool bWait/* = true*/)
+{
+	DWORD dwWaitTime = bWait ? INFINITE : 0;
+	return (WAIT_TIMEOUT == WaitForSingleObject(m_hSemaphore, dwWaitTime)) ? false : true;
+}
+
+void CKDMTCriticalSection::Stop()
+{
+	if (!ReleaseSemaphore(m_hSemaphore, 1, NULL))
+		TRACE(_T("CKDMTCriticalSection::Stop release semaphore failed\n"));
+}
