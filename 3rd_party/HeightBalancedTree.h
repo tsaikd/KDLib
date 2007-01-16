@@ -2,15 +2,15 @@
 	@file
 	@brief a AVL binary tree implement
 
-	Get from codeproject \n
-	http://www.codeproject.com/cpp/avl_cpp.asp \n
 	tsaikd: fix some problem in VC 2005
 
 	@warning modify insertion when data compare is equal. \n
 	The original is inserting to left subtree node. \n
-	I change to no insert same data. \n
-
-	@date 2007/01/15
+	I change to no insert same data.
+	@date 2007/01/16
+	@attention Get from codeproject \n
+	http://www.codeproject.com/cpp/avl_cpp.asp \n
+	http://svn.tsaikd.org/tsaikd/KDLib/3rd_party/HeightBalancedTree.h
 **/
 
 #pragma once

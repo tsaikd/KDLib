@@ -2,7 +2,7 @@
 	@file
 	@brief CKDCriticalSection header file
 	@author tsaikd <tsaikd@gmail.com>
-	@date 2007/01/15
+	@date 2007/01/16
 	@attention http://svn.tsaikd.org/tsaikd/KDLib/KDClass/KDCriticalSection.h
 **/
 
